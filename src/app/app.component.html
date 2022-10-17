@@ -15,7 +15,7 @@
             {{oddNumber}}
           </li>
         </div>
-        <div *ngIf="!onlyOdd">
+        <div *appUnless="onlyOdd">
           <li
             [ngClass]="{odd: evenNumber % 2 !== 0}"
             [ngStyle]="{backgroundColor: evenNumber % 2 !== 0 ? 'yellow' : 'blue'}"
@@ -24,10 +24,17 @@
             {{evenNumber}}
           </li>
         </div>
-        
       </ul>
       <p basicHighlightDirective>Style me using basic directive</p>
       <p betterHighlightDirective [defaultColor]="'yellow'" [highlightColor]="'red'" >Style me using better directive</p>
+      
+      <div [ngSwitch]="value">
+        <p *ngSwitchCase="5">Value is 5</p>
+        <p *ngSwitchCase="10">Value is 5</p>
+        <p *ngSwitchCase="100">Value is 5</p>
+        <p *ngSwitchDefault>Value is Default</p>
+      </div>
+      
     </div>
   </div>
 </div>
